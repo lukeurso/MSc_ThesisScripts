@@ -1,13 +1,16 @@
-/**** script info 
- * generates training data for random forest classifer of supra meltwater 
- * filters pixels by NDWI_ice > 0.01
- * applies k-means clusterer to group pixels from pre-processed training images
- * applies sub clusterer is run for ambiguous groups
- * defines main and sub clusters as lake, slush, or ice (used as 'other' class)
- * samples classes on stratified per-aoi, per-class basis 
- * exports  sampled classified pixels as CSV for training data used in RF_ prefix scripts
+//KMeans_class_def_v05.js
+/**** 
+ script: uses K-means to cluster training scene pixels to generate training data for a random forest slush and lake classifier. 
+ workflow: 
+ * pixels with NDWI_ice > 0.01 are selected to cluster from 14 training scenes
+ * a main k-means algorithm clusters pixels using B1-B7 + NDWI_ice 
+ * a sub-k-means is applied to 3 ambiguous clusters
+ * the main and sub clusters are inspected and manually defined as lake, slush, or ice (used as 'other' class)
+ * slope > 15% is masked (derived from MEASURE Greenland DEM)
+ * classes are sampled on a stratified per-aoi, per-class basis 
+ * sampled pixels are exported as a CSV with class and B1-B7 reflectance + NDWI_ice values as training data used in RF_ prefix scripts
  * 
- * adpted workflow from Dell et al. 2022
+ * adapted workflow from Dell et al. 2022
 
 /**** version info ===========================
  * training data generation script version 5.2
@@ -16,9 +19,9 @@
  * added: define classes, sampling-export
  * ---
  * last major edit:  27 jan 2026  
- * modified AOI defs to highlight/search for clusters
+ * modified AOI defs to highlight search clusters
  * ---
- * this script was created by Luke Urso as part of MSc thesis 
+ * this script was created in Google Earth Engine JavaScript API by L. Urso as part of a MSc thesis at Stockholm University 
  ===============================================****/
  
 /**** ================================
