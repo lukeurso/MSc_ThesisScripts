@@ -1,22 +1,27 @@
+//export_v06.js
 /**** ================================
- *  EXPORT v6, removes CSV/table export component from export_v5.
- *  Parent script = export_v5.
+script overview: inputs entire Landsat 08 and 09 TOA catalogs for random forest classification and outputs 2-day classified rasters with volume retrieval data attached. 
+workflow: 
+ * filters for scenes with solar elev > 15%, and selects the 9 scenes per 2-day window with the highest coverage of the AOIs.
+ * preprocesses a QA_band and B9 threshold cloud mask. 
+ * cloud footprints are stretched 8km along per-scene shadow vectors. 
+ * scenes are clipped to the AOIs and have an NDWI_ice band added.
+ * medoid mosaics are generated using median NDWI_ice value per cell.
+ * classifier is applied.
+ * lakes have additional B4 and B8 reflectance retained and a dilated 1-pixel ring of B4 and B8 values stored as new bands for volume retrieval.  
+ * exports per window rasters as EE assets. 
+ *  ================================ 
+ * version info: 
+ *  v06, removes CSV/table export component from export_v05.
  *
- *  V5 change: before any pixel preprocessing, each raw scene in a mosaic
- *  window is scored by its footprint intersection area with the AOI (a cheap
- *  vector/metadata operation).  Only the top MAX_SCENES_PER_WINDOW scenes
- *  are then preprocessed, directly reducing per-window compute cost.
- *  Set MAX_SCENES_PER_WINDOW = null to disable the limit (v4 behaviour).
+ *  v05 change: before any pixel preprocessing, each raw scene in a mosaic
+ *  window is scored by its footprint intersection area with the AOI. 
+ *  only the top MAX_SCENES_PER_WINDOW scenes are then preprocessed, directly reducing per-window compute cost.
+ *  MAX_SCENES_PER_WINDOW = null disables the limit (v4 behavior).
  *
- *  window_count is now split into:
+ *  window_count is split into:
  *    window_count_raw  — total scenes available in the date window
  *    window_count_used — scenes actually preprocessed (after limiting)
- *
- *  application of classifier
- *  preprocesses scenes with masks, clip, adds NDWI_ice band
- *  generates medoid mosaics from NDWI_ice
- *  exports per window raster classes and mosaics
- *  no visualization layers are added
  *  ================================ ****/
 
 // ------------------------
