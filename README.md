@@ -7,9 +7,10 @@ This repository hosts code used in my Master's thesis, "Twelve years of slush an
 Surely,  
 Luke Urso
 
+---
 
-
-References
-Dell, R. L., Banwell, A. F., Willis, I. C., Arnold, N. S., Halberstadt, A. R. W., Chudley, T. R., & Pritchard, H. D. (2022). Supervised classification of slush and ponded water on Antarctic ice shelves using Landsat 8 imagery. Journal of Glaciology, 68(268), 401–414. https://doi.org/10.1017/jog.2021.114
+#### References
+_Dell, R. L., Banwell, A. F., Willis, I. C., Arnold, N. S., Halberstadt, A. R. W., Chudley, T. R., & Pritchard, H. D. (2022). Supervised classification of slush and ponded water on Antarctic ice shelves using Landsat 8 imagery. Journal of Glaciology, 68(268), 401–414. https://doi.org/10.1017/jog.2021.114
 Moussavi, M., Pope, A., Halberstadt, A. R. W., Trusel, L. D., Cioffi, L., & Abdalati, W. (2020). Antarctic Supraglacial Lake Detection Using Landsat 8 and Sentinel-2 Imagery: Towards Continental Generation of Lake Volumes. Remote Sensing, 12(1), Article 1. https://doi.org/10.3390/rs12010134
 Pope, A., Scambos, T. A., Moussavi, M., Tedesco, M., Willis, M., Shean, D., & Grigsby, S. (2016). Estimating supraglacial lake depth in West Greenland using Landsat 8 and comparison with other multispectral methods. The Cryosphere, 10(1), 15–27. https://doi.org/10.5194/tc-10-15-2016
+_
