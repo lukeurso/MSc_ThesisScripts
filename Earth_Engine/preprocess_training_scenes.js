@@ -2,7 +2,7 @@
  * training image preprocesser version 1.4
  * create:          14 Nov 2025
  * 
- This script was used to pre-processes landsat 08, 09 training scenes for use in KMean_ClassDef_v5. 
+ This script was used to preprocess Landsat 08, 09 training scenes. 
  Landsat Scenes are called by ID, corrected with cloud and rock masks, clipped to the relevant AOI. NDWI(ice) band is added in separate script. 
  The workflow is based on the method descripbed in Dell et al 2022, and the rock mask is adappted from the method described by Moussavi et al 2020, with an added NDWI threshold component. 
  This script was used to pre-processing scenes used to generate training data with an additional separate script to add an NDWI_ICE band.
