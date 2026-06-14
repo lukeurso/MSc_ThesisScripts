@@ -5,7 +5,7 @@ This repository hosts code used in my Master's thesis, "Twelve years of slush an
 **_PS: If you find yourself here and happen to have an Earth Engine account, try the public_drainage_event_viewer_for_EE.js. It uses EE assets from this study I've made public to interactively show the before and after of drainage events with fast composite RGB Landsat scenes. I think it is very fun :)_** 
 
   
-Luke Urso, lukeurso@me.com, https://lukeurso.github.io/
+My name is Luke Urso, my email is lukeurso@me.com, and my website is https://lukeurso.github.io/. 
 
 ---
 
